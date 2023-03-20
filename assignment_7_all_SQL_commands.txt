@@ -1,0 +1,16 @@
+Assignment Name: SQL Commands
+=============================
+
+Use the employees table to answer and Explainations of the following questions:
+-------------------------------------------------------------------------------
+
+A. Write a query to select all columns and rows from the departments table.
+
+
+B. Write a query to select only the name and manager columns of the "Finance" department.
+
+
+C. Write a query to calculate the total number of employees in each department.
+
+
+D. Write a query to insert a new department called "Research" with a manager named "John Doe".
