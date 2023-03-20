@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 07:10 PM
+-- Generation Time: Mar 20, 2023 at 10:03 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `departments` (
-  `DEPARTMENT_ID` int(25) NOT NULL,
+  `ID` int(25) NOT NULL,
   `NAME` varchar(50) NOT NULL,
   `MANAGER` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -37,10 +37,11 @@ CREATE TABLE `departments` (
 -- Dumping data for table `departments`
 --
 
-INSERT INTO `departments` (`DEPARTMENT_ID`, `NAME`, `MANAGER`) VALUES
+INSERT INTO `departments` (`ID`, `NAME`, `MANAGER`) VALUES
 (1, 'Marketing', 'James Bond'),
 (2, 'Finance', 'Emma Watson'),
-(3, 'Sales', 'Jack Harlow');
+(3, 'Sales', 'Jack Harlow'),
+(4, 'Research', 'John Doe');
 
 -- --------------------------------------------------------
 
@@ -49,10 +50,10 @@ INSERT INTO `departments` (`DEPARTMENT_ID`, `NAME`, `MANAGER`) VALUES
 --
 
 CREATE TABLE `employees` (
-  `EMPLOYEE_ID` int(50) NOT NULL,
+  `ID` int(50) NOT NULL,
   `NAME` varchar(100) DEFAULT NULL,
   `AGE` int(3) UNSIGNED DEFAULT NULL,
-  `SALARY` decimal(9,2) NOT NULL,
+  `SALARY` int(20) NOT NULL,
   `DEPARTMENT_ID` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -60,12 +61,14 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`EMPLOYEE_ID`, `NAME`, `AGE`, `SALARY`, `DEPARTMENT_ID`) VALUES
-(1001, 'John Doe', 25, '60000.00', 1),
-(1002, 'Jane Smith', 30, '75000.00', 2),
-(1003, 'Bob Adams', 40, '50000.00', 1),
-(1004, 'Lisa Jones', 35, '90000.00', 3),
-(1005, 'Tom Smith', 45, '55000.00', 2);
+INSERT INTO `employees` (`ID`, `NAME`, `AGE`, `SALARY`, `DEPARTMENT_ID`) VALUES
+(1001, 'John Adams', 25, 60000, 1),
+(1002, 'Jane Smith', 30, 25000, 2),
+(1003, 'Bob Adams', 40, 50000, 1),
+(1004, 'Lisa Jones', 35, 90000, 3),
+(1005, 'Tom Smith', 45, 35000, 2),
+(1006, 'Samuel Taylor', 45, 15000, 3),
+(1007, 'Abraham Thomas', 54, 12000, 1);
 
 --
 -- Indexes for dumped tables
@@ -75,13 +78,13 @@ INSERT INTO `employees` (`EMPLOYEE_ID`, `NAME`, `AGE`, `SALARY`, `DEPARTMENT_ID`
 -- Indexes for table `departments`
 --
 ALTER TABLE `departments`
-  ADD PRIMARY KEY (`DEPARTMENT_ID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `employees`
 --
 ALTER TABLE `employees`
-  ADD PRIMARY KEY (`EMPLOYEE_ID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -91,13 +94,13 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `DEPARTMENT_ID` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `EMPLOYEE_ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1006;
+  MODIFY `ID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1010;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

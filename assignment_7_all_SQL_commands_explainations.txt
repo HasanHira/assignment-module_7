@@ -2,17 +2,69 @@ Assignment Name: SQL Commands Explainations
 ===========================================
 
 
-Use the employees table to answer the following questions:
----------------------------------------------------------
+EMPLOYEES TABLE questions answers and Explainations:
+---------------------------------------------------
+
+A. Write a query to select all columns and rows from the employees table.
+
+    ans: SELECT * FROM employees;
+    exp: In the above query command we can select all columns and rows from the employees table.
+
+
+B. Write a query to select only the name and salary columns of all employees with a salary greater than 50000.
+
+    ans: SELECT NAME, SALARY FROM employees WHERE SALARY>50000;
+    exp: The above query command we can select only the name and salary columns of all employees with a salary greater than 50000.
+
+
+C. Write a query to calculate the average salary of all employees.
+
+    ans: SELECT AVG(SALARY) FROM employees;
+    exp: The above line of query command calculate the average salary of all employees.
+
+
+D. Write a query to count the number of employees who work in the "Marketing" department.
+
+    ans: SELECT count(*) FROM employees WHERE DEPARTMENT_ID = ( SELECT ID FROM departments WHERE NAME = 'Marketing');
+    exp: This query command count for us the number of employees who work in the "Marketing" department.
+
+
+E. Write a query to update the salary column of the employee with an id of 1001 to 60000.
+
+    ans: UPDATE employees SET SALARY = '60000' WHERE ID = '1001';
+    exp: This query command update the salary to 60000 of the employee with an id of 1001.
+
+
+F. Write a query to delete all employees whose salary is less than 30000.
+
+    ans: DELETE FROM employees WHERE SALARY<30000;
+    exp: This query command delete all employees whose salary is less than 30000.
+
+
+
+
+DEPARTMENTS TABLE questions answers and Explainations:
+-----------------------------------------------------
 
 A. Write a query to select all columns and rows from the departments table.
-    ans: 
+
+    ans: SELECT * FROM departments;
+    exp: This query command select all columns and rows from the departments table.
 
 
 B. Write a query to select only the name and manager columns of the "Finance" department.
 
+    ans: SELECT NAME, MANAGER FROM departments WHERE NAME='Finance';
+    exp: This query command select only the name and manager columns of the "Finance" department.
+
 
 C. Write a query to calculate the total number of employees in each department.
 
+    ans: SELECT departments.NAME, count(*) FROM employees JOIN departments ON employees.DEPARTMENT_ID = departments.ID GROUP BY departments.NAME;
+    exp: This query command calculate the total number of employees in each department.
+
 
 D. Write a query to insert a new department called "Research" with a manager named "John Doe".
+
+    ans: INSERT INTO departments (ID, NAME, MANAGER) VALUES ('5', 'Research', 'John Doe');
+    exP: In this query command we can insert a new department called "Research" with a manager named "John Doe".
